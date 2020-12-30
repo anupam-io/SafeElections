@@ -30,13 +30,15 @@ fs.readdir(path.resolve(__dirname, 'contracts'), function (err, files) {
 			}
 		};
 		
-		var output = JSON.parse(solc.compile(JSON.stringify(input)));
-		var ourContract = output.contracts['fileName'][fileName.replace('.sol', '')];
+		var output = JSON.parse(solc.compile(JSON.stringify(input)));		
+	
+		for (let contract in output.contracts.fileName) {
+			fs.outputJSONSync(
+				path.resolve(buildPath, contract+'.json'),
+				output.contracts.fileName[contract]
+			);
+		}
 
-		fs.outputJSONSync(
-			path.resolve(buildPath,fileName.replace('.sol','.json')),
-			ourContract
-		);
-		console.log(fileName, 'compilation.');
+		console.log(fileName, ' compiled.');
 	});
 });

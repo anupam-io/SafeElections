@@ -1,7 +1,7 @@
 const HDWalletProvider = require('truffle-hdwallet-provider');
 const Web3 = require('web3');
 
-const compiledContract = require('./build/SimpleStorage.json');
+const compiledContract = require('./build/Factory.json');
 
 // Can be used to generate many accounts, Has public and private keys, Sensitive information
 const seedPhrase = 'tube odor target consider time veteran derive umbrella cherry inflict hat twelve';
@@ -14,7 +14,7 @@ const provider = new HDWalletProvider(seedPhrase, infuraEndpoint);
 // Connecting web3 through provider
 const web3 = new Web3(provider);
 
-const minGas = '1000000';
+const minGas = '5000000';
 
 
 const deploy = async()=>{
@@ -35,3 +35,4 @@ deploy();
 
 // Deployed address, give and take: '0x6883A7b9B6E8e6b1Da8bD6561F37BF2Da80D43fF'
 // Deployed address, simple storage: '0x079D9850ec6c3b527f4056610166c25504b0C7B3'
+// Deployed address, factory contract: '0xfa0aB3c15a62D3CBAD22c8024B118f9cd9cB9CD7'

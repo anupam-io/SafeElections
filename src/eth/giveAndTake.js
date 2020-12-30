@@ -7,6 +7,4 @@ const giveAndTake = new web3.eth.Contract(
     '0x6883A7b9B6E8e6b1Da8bD6561F37BF2Da80D43fF'
 );
 
-console.log('hi');
-
 export default giveAndTake;
