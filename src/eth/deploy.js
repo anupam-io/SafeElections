@@ -1,7 +1,7 @@
 const HDWalletProvider = require('truffle-hdwallet-provider');
 const Web3 = require('web3');
 
-const compiledContract = require('./build/GiveAndTake.json');
+const compiledContract = require('./build/SimpleStorage.json');
 
 // Can be used to generate many accounts, Has public and private keys, Sensitive information
 const seedPhrase = 'tube odor target consider time veteran derive umbrella cherry inflict hat twelve';
@@ -34,3 +34,4 @@ deploy();
 
 
 // Deployed address, give and take: '0x6883A7b9B6E8e6b1Da8bD6561F37BF2Da80D43fF'
+// Deployed address, simple storage: '0x079D9850ec6c3b527f4056610166c25504b0C7B3'
