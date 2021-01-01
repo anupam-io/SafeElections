@@ -8,7 +8,7 @@
 ## Intro
 The aim of this project is to make an application where independent and trustless elections can be held. The app has several features implemented and all bundled into one React application.
 
-<b>The app is connected is Kovan test network.</b>
+<b>The app is configured for Kovan test network.</b>
 
 ## How to participate online ?
  - Visit from desktop: [Safe Elections](https://akcgjc007.github.io/SafeElections/)
