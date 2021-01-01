@@ -39,22 +39,18 @@ export default class OneElection extends Component {
                 electionStatus: await this.state.election.methods.votingStatus().call()
             });
 
-
-
             if(this.state.electionStatus === true){
                 this.setState({
                     statusMessage: <Message >You can vote.</Message>
                 });
             } else {
-                await this.updateWinnerMessage();                
+                const _winner = await this.state.election.methods.winnerCand().call();            
+                this.setState({
+                    winner: _winner,
+                });
+                await this.updateWinnerMessage();
             }
 
-            const _winner = await this.state.election.methods.winnerCand().call();
-            
-            this.setState({
-                winner: _winner,
-            });
-            await this.updateWinnerMessage();
 
         } catch (err) {
             console.log("Error occured. ", err.message);
