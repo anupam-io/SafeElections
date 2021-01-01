@@ -3,6 +3,8 @@ import { Container, Grid, Header, Icon, Image, Menu, Message, Segment, Sidebar, 
 
 import CounterApp from "./components/CounterApp";
 import GiveAndTake from './components/GiveAndTake';
+import SimpleStorage from './components/SimpleStorage';
+import Elections from "./components/Elections";
 
 
 class App extends Component {
@@ -20,13 +22,19 @@ class App extends Component {
 			case 'CounterApp':
 				this.setState({ activeContent: <CounterApp /> });
 				break;
-				case 'GiveAndTake':
-					this.setState({ activeContent: <GiveAndTake /> });
+			case 'GiveAndTake':
+				this.setState({ activeContent: <GiveAndTake /> });
 				break;
-				
-				default:
-					this.setState({ activeContent: <CounterApp /> });
-					break;
+			case 'SimpleStorage':
+				this.setState({ activeContent: <SimpleStorage /> });
+				break;
+			case 'Election':
+				this.setState({ activeContent: <Elections /> });
+				break;
+			
+			default:
+				this.setState({ activeContent: <CounterApp /> });
+				break;
 		}
 
 	};
@@ -39,11 +47,16 @@ class App extends Component {
 			<div>
 				<link async rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
 				<script async src="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" />
-				<Container style={{ marginTop: '20px' }}>
+				<Container style={{ margin: '20px' }}>
 					<Menu inverted>
 						<Menu.Item
 							name='CounterApp'
 							active={activeItem === 'CounterApp'}
+							onClick={this.handleItemClick}
+						/>
+						<Menu.Item
+							name='SimpleStorage'
+							active={activeItem === 'SimpleStorage'}
 							onClick={this.handleItemClick}
 						/>
 						<Menu.Item
@@ -52,14 +65,17 @@ class App extends Component {
 							onClick={this.handleItemClick}
 						/>
 						<Menu.Item
-							name='friends'
-							active={activeItem === 'friends'}
+							name='Election'
+							active={activeItem === 'Election'}
 							onClick={this.handleItemClick}
 						/>
+
+
+
 					</Menu>
 					<Container>
-					<Message info>
-						<Message.Header>ATTENTION !!! Testing Phase</Message.Header>
+						<Message info>
+							<Message.Header>ATTENTION !!! Testing Phase</Message.Header>
 						All transactions are demo transactions hosted on Kovan testing network.
 						<br />Please switch your wallet to Kovan testing network.
 

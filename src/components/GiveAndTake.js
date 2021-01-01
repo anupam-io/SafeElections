@@ -5,21 +5,6 @@ import giveAndTake from "./../eth/giveAndTake"
 import web3 from "./../eth/web3"
 
 export default class GiveAndTake extends Component {
-	async fetchBalance() {
-		this.setState({
-			contractBalance: await giveAndTake.methods.getBalance().call()
-		});
-
-		try {
-			const accounts = await web3.eth.getAccounts();
-			this.setState({
-				currentBalance: await web3.eth.getBalance(accounts[0])
-			});
-		} catch (error) {
-
-		}
-	}
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -32,7 +17,27 @@ export default class GiveAndTake extends Component {
 			errorOcc: false,
 			transMessageHidden: true
 		}
-		this.fetchBalance();
+	}
+
+
+	fetchBalance = async()=>{
+		this.setState({
+			contractBalance: await giveAndTake.methods.getBalance().call()
+		});
+
+	}
+
+	async componentDidMount(){
+
+		try {
+			await this.fetchBalance();
+			const accounts = await web3.eth.getAccounts();
+			this.setState({
+				currentBalance: await web3.eth.getBalance(accounts[0])
+			});
+		} catch (error) {
+
+		}
 	}
 
 
@@ -109,7 +114,7 @@ export default class GiveAndTake extends Component {
 					<Header.Content>
 						Give And Take
       			<Header.Subheader>
-							No boundaries whatsoever
+							No boundaries whatsoever.
 						</Header.Subheader>
 					</Header.Content>
 				</Header>
