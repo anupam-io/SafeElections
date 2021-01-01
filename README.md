@@ -11,7 +11,7 @@ The aim of this project is to make an application where independent and trustles
 <b>The app is connected is Kovan test network.</b>
 
 ## How to participate online ?
- - Visit: [Safe Elections](https://akcgjc007.github.io/SafeElections/)
+ - Visit from desktop: [Safe Elections](https://akcgjc007.github.io/SafeElections/)
  - Make sure you have a metamask wallet
  - Make sure you are switched to Kovan test network
  - Make sure you have some test ethers
