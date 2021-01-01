@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/SafeElections/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/SafeElections/static/js/main.fd595167.chunk.js",
+    "main.js.map": "/SafeElections/static/js/main.fd595167.chunk.js.map",
+    "runtime-main.js": "/SafeElections/static/js/runtime-main.91b6d6f4.js",
+    "runtime-main.js.map": "/SafeElections/static/js/runtime-main.91b6d6f4.js.map",
+    "static/js/2.6b5a7033.chunk.js": "/SafeElections/static/js/2.6b5a7033.chunk.js",
+    "static/js/2.6b5a7033.chunk.js.map": "/SafeElections/static/js/2.6b5a7033.chunk.js.map",
+    "static/js/3.90de8c61.chunk.js": "/SafeElections/static/js/3.90de8c61.chunk.js",
+    "static/js/3.90de8c61.chunk.js.map": "/SafeElections/static/js/3.90de8c61.chunk.js.map",
+    "index.html": "/SafeElections/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/SafeElections/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.6b5a7033.chunk.js.LICENSE.txt": "/SafeElections/static/js/2.6b5a7033.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.91b6d6f4.js",
+    "static/js/2.6b5a7033.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.fd595167.chunk.js"
+  ]
+}
