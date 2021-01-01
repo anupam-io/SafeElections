@@ -3,7 +3,7 @@
 [![Open Source Love svg3](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 
-# Safe Elections: A tamper free election service based on ethereum network
+# Safe Elections: A tamper free election service based on Ethereum
 
 ## Intro
 The aim of this project is to make an application where independent and trustless elections can be held. The app has several features implemented and all bundled into one React application.
