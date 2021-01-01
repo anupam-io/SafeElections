@@ -90,16 +90,6 @@ export default class Election extends Component {
                     onClick={this.scrollToBottom}
                     primary floated="right" content="HOST YOUR ELECTION" />
 
-                <Header as='h2'>
-                    <Icon name='box' />
-                    <Header.Content>
-                        Elections
-      			        <Header.Subheader>
-                            Safe and Controlled.
-						</Header.Subheader>
-                    </Header.Content>
-                </Header>
-
                 <Segment loading={this.state.isLoading}>
                     {listItems}
                 </Segment>

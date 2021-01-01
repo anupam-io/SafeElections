@@ -25,3 +25,5 @@ Single page applicaiton made with the help of React components.
    - `npm start`
  - <b>Compile smart contracts</b>
    - `npm run compile`
+ - <b>Running test</b>
+   - `npm run test`
