@@ -1,5 +1,5 @@
 {
-  "name": "mini-contr",
+  "name": "safe_elections",
   "version": "0.1.0",
   "private": true,
   "homepage": "http://akcgjc007.github.io/SafeElections",
@@ -23,9 +23,9 @@
     "start": "react-scripts start",
     "test": "mocha",
     "compile": "cd eth; node compileAll.js; cd ..;",
+    "build": "react-scripts build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "build": "react-scripts build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

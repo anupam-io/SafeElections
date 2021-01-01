@@ -1,79 +1,57 @@
 import React, { Component } from "react";
-import { Segment, Icon, Header, Button, Input, Form, Container, Message, Card, Item, Accordion, Grid } from "semantic-ui-react";
+import { Segment, Header, Button, Input, Form, Container, Message } from "semantic-ui-react";
 
 import factory from "./../eth/factory"
 import OneElection from "./OneElection";
 import web3 from "./../eth/web3";
 
 export default class Election extends Component {
-    messagesEndRef = React.createRef();
-    scrollToBottom = () => {
-        this.messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
-    }
-
     constructor(props) {
         super(props);
         this.state = {
             electionAddress: [],
-            isLoading: false,
             inputCand: "",
             inputDesc: ""
         }
     }
 
+    messagesEndRef = React.createRef();
+    scrollToBottom = () => {
+        this.messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+
     onSubmit = async (event) => {
         event.preventDefault();
-        console.log("SUBMITTING THE ELECTION.");
-
-
-        const _names = this.state.inputCand.split(',');
-
+        
         // Signal parent for loading 
-        this.loadFunction();
-        // Now process the transaction
+        this.props.load();
 
+        // Now process the transaction
         try {
+            const _names = this.state.inputCand.split(',');
             const accounts = await web3.eth.getAccounts();
-            const res = await factory.methods
-            .createElection(_names, this.state.inputDesc)
-            .send({
-                from: accounts[0],
-                gas: '5000000'
-            });
+            await factory.methods
+                .createElection(_names, this.state.inputDesc)
+                .send({
+                    from: accounts[0],
+                    gas: '5000000'
+                });
         } catch (err) {
 
         }
 
         // Signal parent for stop loading
-        this.unloadFunction();
+        this.props.unload()
     }
 
     async componentDidMount() {
         try {
-
             const _addr = await factory.methods.getDeployedElections().call();
-
-            this.setState({
-                electionAddress: _addr
-            });
+            this.setState({ electionAddress: _addr });
         } catch (err) {
             console.log(err.message);
         }
     }
-
-    loadFunction = () => {
-        this.setState({
-            isLoading: true
-        });
-    }
-    unloadFunction = () => {
-        this.setState({
-            isLoading: false
-        });
-    };
-
-
-
 
     render() {
         const listItems = this.state.electionAddress.map((addr) => (
@@ -81,20 +59,26 @@ export default class Election extends Component {
                 key={addr}
                 loadFunction={this.loadFunction}
                 unloadFunction={this.unloadFunction}
-                addr={addr} />
+                addr={addr} 
+                load={this.props.load}
+                unload={this.props.unload}
+                
+                />
         ));
 
         return (
             <Container>
-                <Button
-                    onClick={this.scrollToBottom}
-                    primary floated="right" content="HOST YOUR ELECTION" />
-
-                {/* <Segment loading={this.state.isLoading}> */}
-                    {listItems}
-                {/* </Segment> */}
+                <div style={{paddingBottom: '50px'}}>
+                    <Button
+                        onClick={this.scrollToBottom}
+                        primary floated="right"
+                        content="HOST YOUR ELECTION"
+                        />
+                </div>
+                {listItems}
 
                 <div ref={this.messagesEndRef} />
+
                 <Segment>
                     <Form>
                         <Header>
@@ -109,11 +93,6 @@ export default class Election extends Component {
 
                         </Message>
 
-
-
-
-
-
                         <Input
                             type="text"
                             placeholder="National elections."
@@ -121,8 +100,7 @@ export default class Election extends Component {
                             labelPosition="left"
                             value={this.state.inputDesc}
                             onChange={event => this.setState({ inputDesc: event.target.value })}
-                        >
-                        </Input>
+                        />
                         <br />
                         <br />
                         <Input
@@ -132,23 +110,19 @@ export default class Election extends Component {
                             labelPosition='left'
                             value={this.state.inputCand}
                             onChange={event => this.setState({ inputCand: event.target.value })}
-                        >
-                        </Input>
+                        />
                         <br />
                         <br />
 
                         <Button
                             primary
                             onClick={this.onSubmit}
-                        >
-                            Start your election !
-                        </Button>
+                            content="Start your election!"
+                        />
                         <br />
-
                     </Form>
                 </Segment>
             </Container>
         );
     }
-
 }
