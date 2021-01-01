@@ -90,9 +90,9 @@ export default class Election extends Component {
                     onClick={this.scrollToBottom}
                     primary floated="right" content="HOST YOUR ELECTION" />
 
-                <Segment loading={this.state.isLoading}>
+                {/* <Segment loading={this.state.isLoading}> */}
                     {listItems}
-                </Segment>
+                {/* </Segment> */}
 
                 <div ref={this.messagesEndRef} />
                 <Segment>
@@ -141,11 +141,12 @@ export default class Election extends Component {
                             primary
                             onClick={this.onSubmit}
                         >
-                            Submit form.
+                            Start your election !
                         </Button>
+                        <br />
+
                     </Form>
                 </Segment>
-
             </Container>
         );
     }

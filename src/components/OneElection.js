@@ -121,7 +121,7 @@ export default class OneElection extends Component {
                 <Header>
                     {this.state.desc}
                 </Header>
-                <p>{this.state.addr}</p>
+                {/* <p>{this.state.addr}</p> */}
                 <Segment>
                     {options}
                 </Segment>                
