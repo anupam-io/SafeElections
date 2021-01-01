@@ -26,21 +26,20 @@ export default class Election extends Component {
         console.log("SUBMITTING THE ELECTION.");
 
 
-        const _names = '';
-        const _desc = '';
+        const _names = this.state.inputCand.split(',');
 
         // Signal parent for loading 
         this.loadFunction();
         // Now process the transaction
 
         try {
-            // const accounts = await web3.eth.getAccounts();
-            // const res = await factory.methods
-            // .createElection(_names, _desc)
-            // .send({
-            //     from: accounts[0],
-            //     gas: '5000000'
-            // });
+            const accounts = await web3.eth.getAccounts();
+            const res = await factory.methods
+            .createElection(_names, this.state.inputDesc)
+            .send({
+                from: accounts[0],
+                gas: '5000000'
+            });
         } catch (err) {
 
         }
@@ -102,7 +101,7 @@ export default class Election extends Component {
                 </Header>
 
                 <Segment loading={this.state.isLoading}>
-                    {/* {listItems} */}
+                    {listItems}
                 </Segment>
 
                 <div ref={this.messagesEndRef} />
