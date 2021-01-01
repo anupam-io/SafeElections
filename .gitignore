@@ -1,5 +1,3 @@
 /node_modules
-/.pnp
-.pnp.js
 /semantic
 .eslintcache
