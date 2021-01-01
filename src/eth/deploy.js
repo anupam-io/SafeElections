@@ -35,4 +35,4 @@ deploy();
 
 // Deployed address, give and take: '0x6883A7b9B6E8e6b1Da8bD6561F37BF2Da80D43fF'
 // Deployed address, simple storage: '0x079D9850ec6c3b527f4056610166c25504b0C7B3'
-// Deployed address, factory contract: '0xfa0aB3c15a62D3CBAD22c8024B118f9cd9cB9CD7'
+// Deployed address, factory contract: '0xa7720C51402CD81014609c4B08fd615BD043Ea5E'

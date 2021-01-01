@@ -10,21 +10,22 @@ contract Factory{
         deployedElections.push(cont);
     }
 
-    function getAllElections() public view returns (address[] memory) {
+    function getDeployedElections() public view returns (address[] memory) {
         return deployedElections;
     }
 }
 
 contract Election {
-    address ORGANIZER;
-    string[] candList;
-    mapping(string => uint) totalVotes;
+    address public ORGANIZER;
+    string[] public candList;
     
+    mapping(string => uint) totalVotes;
     mapping(address => bool) hasVoted;
     
-    bool votingStatus = false;
+    bool public votingStatus = false;
+    string public description;
+
     string winner;
-    string description;
 
     constructor(address _org, string[] memory initList, string memory _description) {
         require(initList.length > 0);
@@ -35,12 +36,6 @@ contract Election {
             totalVotes[initList[i]] = 0;
         }
         winner = "";
-    }
-
-    function beginVoting() public {
-        require(msg.sender == ORGANIZER);
-        require(!votingStatus);
-        
         votingStatus = true;
     }
     
@@ -70,10 +65,7 @@ contract Election {
         return winner;
     }
 
-    function giveDescription() public view returns (string memory){
-        return description;
-    }
-    function giveCandList() public view returns (string[] memory){
+    function giveCandList() public view returns (string[] memory) {
         return candList;
     }
 }
