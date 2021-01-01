@@ -4,7 +4,7 @@ import compiledContract from './build/Factory.json';
 
 const factory = new web3.eth.Contract(
     compiledContract.abi,
-    '0xa7720C51402CD81014609c4B08fd615BD043Ea5E'
+    '0x7DA8BB2B098D651634d877b91B3dcaFBbA484E6f'
 );
 
 export default factory;
