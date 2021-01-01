@@ -6,8 +6,9 @@
 # Safe Elections: A tamper free election service based on ethereum network
 
 ## Intro
-The aim of this project was to make an election system which is tamper-evident and 100% trustable. 
+The aim of this project is to make an application where independent and trustless elections can be held. The app has several features implemented and all bundled into one React application.
 
+<b>The app is connected is Kovan test network.</b>
 
 ## Features
  - New elections can be hosted
@@ -28,4 +29,16 @@ The aim of this project was to make an election system which is tamper-evident a
    - `npm i`
    - `npm start`
 
+## Sample
+<img width="600" src="./__sample/1.png">
+<img width="600" src="./__sample/2.png">
+
 ## Contributors
+<table><tr><td align="center">
+        <a href="https://github.com/akcgjc007">
+            <img src="https://avatars2.githubusercontent.com/u/56300182" width="100;" alt="anupam"/>
+            <br />
+            <sub><b>Anupam Kumar</b></sub>
+        </a>
+    </td></tr>
+</table>
