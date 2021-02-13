@@ -32,9 +32,10 @@ The aim of this project is to make an application where independent and trustles
  - Semantic UI React
 
 ## How to run ?
- - <b>Launch the web-application</b>
-   - `npm i`
-   - `npm start`
+ - `yarn i`
+ - `yarn start`
+ - `yarn compile`
+ - `yarn test`
 
 ## Sample
 <img width="600" src="./__sample/1.png">

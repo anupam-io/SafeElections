@@ -61,7 +61,7 @@ export default class OneElection extends Component {
         const realManager = await this.state.election.methods.ORGANIZER().call();
         const accounts = await web3.eth.getAccounts();
 
-        if (accounts[0] == realManager) {
+        if (accounts[0] === realManager) {
             this.setState({ isManager: true });
         }
     }
